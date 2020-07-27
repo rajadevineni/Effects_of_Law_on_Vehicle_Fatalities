@@ -19,7 +19,7 @@ The complete description of the dataset is available [**here**](https://github.c
 	State | Unemployement rate 
 	----- | ------------------ 
 	   WV | 13.20
-           LA | 11.37
+	   LA | 11.37
 	   MI | 10.77
 	   MS | 10.71
 	   AL | 10.41
