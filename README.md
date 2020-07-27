@@ -91,11 +91,9 @@ The plot below shows that there a greater degree of variance in the fitted value
 The correlation graphs below are between key variables which are part of regression models.
 
 ![BTvsVF](/Plots%26Graphs/BT_VS_VF.png)
-
-
+![UNR vs VF](/Plots%26Graphs/UNR%20vs%20VF.png)
 ![AlcvsVF](/Plots%26Graphs/AlcvsVF.png)
 ![1820vsVF](/Plots%26Graphs/1820vsVF.png)
-
 
 ![Correlogram of Variables from Pooled OLS-Model](/Plots%26Graphs/Correlogram%20of%20Variables%20from%20Pooled%20OLS-Model.png)
 
