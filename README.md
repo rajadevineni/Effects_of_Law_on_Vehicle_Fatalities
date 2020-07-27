@@ -221,7 +221,13 @@ In order to determine which model is better suited for our panel data, we build 
 
 * We perform a **Hausman test** to validate our hypothesis. 
 
-![Hausman Test](/Plots%26Graphs/Hausman%20test.png)
+~~~
+	Hausman Test
+
+data:  allmort ~ beertax + aidall + unrate + perinc + allnite + pop1517 +  ...
+chisq = 201.76, df = 7, p-value < 2.2e-16
+alternative hypothesis: one model is inconsistent
+~~~
 
 
 >**From Hausman test we can reject the null hypothesis that Random effects model is better and consider to go with Fixed effects model**
