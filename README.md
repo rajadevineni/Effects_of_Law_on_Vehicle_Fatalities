@@ -229,8 +229,7 @@ chisq = 201.76, df = 7, p-value < 2.2e-16
 alternative hypothesis: one model is inconsistent
 ~~~
 
-
->**From Hausman test we can reject the null hypothesis that Random effects model is better and consider to go with Fixed effects model**
+**From Hausman test we can reject the null hypothesis that Random effects model is better and consider to go with Fixed effects model**
 
 
 ## Conclusion: 
