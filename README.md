@@ -72,7 +72,7 @@ model_ols_2 <- lm(allmort ~  dry + unrate + allnite + beertax + comserd + pop151
 
 * *Despite having very good R-squared value and other metrics, a model may have heteroskedasticity. Such models Std.Error are not reliable hence we need to find heteroskedastisity in the model and remove if exists.* 
 
-### Handling heteroskedasticity: 
+### Handling Heteroskedasticity: 
 
 The plot below shows that there a greater degree of variance in the fitted values when going towards right, hence proving the existence of heteroskedasticity.
 
@@ -86,7 +86,7 @@ The plot below shows that there a greater degree of variance in the fitted value
 
 ![AIC-BIC values](/Plots%26Graphs/OLS%20AIC_BIC.png)
 
-## Correlation graphs of key variable:
+## Correlation graphs of key variables:
 
 The correlation graphs below are between key variables which are part of regression models.
 
