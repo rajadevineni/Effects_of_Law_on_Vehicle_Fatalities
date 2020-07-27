@@ -12,6 +12,8 @@ library(lmtest)
 library(plm)
 library(foreign)
 library(GGally)
+library("cowplot")
+
 
 #This function is used to remove heteroskidasticity and 
 #give White coefficients with robust standard errors.
@@ -115,6 +117,12 @@ summary(model_ols_1)
 model_ols_2 <- lm(allmort ~  dry + unrate + allnite + beertax + comserd + pop1517 + pop1820 ,
                   data = total_data_frame)
 summary(model_ols_2)
+#model_ols_2_resd =  resid(model_ols_2)
+
+#We now plot the residual against the observed values of the variable waiting.
+
+par(mfrow = c(2, 2))  # Split the plotting panel into a 2 x 2 grid
+plot(model_ols_2)
 
 #We are removing the heteroskedasticity from the above model to get robust standard errors.
 tidy.w(model_ols_2)
@@ -167,28 +175,43 @@ corr_all <- total_data_frame [c(-1,-2)]
 # new dataframe with the variables from final model, model_fixed_1 
 model_corr <- total_data_frame [c("allmort", "beertax", "aidall", "unrate", "perinc", "allnite", "pop1517", "pop1820")]
 
+#dev.off()
 # Generating correlation matrix with all the variables
 ggcorr(corr_all, method = c("everything", "pearson")) 
+ggpairs(corr_all, title="Correlogram of Variables from Pooled OLS-Model") 
 
 # Generating correlation pairs with variables from the final model. 
-ggpairs(model_corr, title="correlogram with ggpairs()") 
+ggpairs(model_corr, title="Correlogram of Variables from Final Model") 
 
 # Beer Tax VS # Vehice Fatalities
-ggplot(model_corr, aes(x=beertax, y=allmort)) +
+bt_vf <- ggplot(model_corr, aes(x=beertax, y=allmort)) +
   geom_point() + xlab("Beer Tax: Tax on Case of Beer ($)") + ylab("# Vehice Fatalities") + ggtitle("Beer Tax VS # Vehice Fatalities")
   geom_rug(col="steelblue",alpha=0.1, size=1.5)
 
 # Population 18-20 VS # Vehice Fatalities
-ggplot(model_corr, aes(x=pop1820, y=allmort)) +
+age_vf <- ggplot(model_corr, aes(x=pop1820, y=allmort)) +
   geom_point() + 
   geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
   xlab("Population, 18-20 year olds") + ylab("# Vehice Fatalities") +
   ggtitle("Population 18-20 VS # Vehice Fatalities") 
 
-aidall
 
-ggplot(model_corr, aes(x=aidall, y=allmort)) +
+alcl_vf <- ggplot(model_corr, aes(x=aidall, y=allmort)) +
   geom_point() + 
   geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
   xlab("# of alcohol-involved VF") + ylab("# Vehice Fatalities") +
   ggtitle("Alcohol-involved VF vs Vehice Fatalities") 
+
+unr_vf <- ggplot(model_corr, aes(x=unrate, y=allmort)) +
+  geom_point() + 
+  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
+  xlab("# of alcohol-involved VF") + ylab("# Vehice Fatalities") +
+  ggtitle("Unemployment Rate vs Vehice Fatalities") 
+
+# Generating correlation pairs with variables from the Pooled final model. 
+model_pool_data <- total_data_frame [c("allmort", "beertax", "dry", "unrate", "comserd", "allnite","pop1517", "pop1820")]
+ggpairs(model_pool_data, title="Correlogram of Variables from Pooled OLS-Model") 
+
+# plotting all corre grpahs together
+theme_set(theme_cowplot())
+plot_grid(bt_vf, age_vf, alcl_vf, unr_vf, ncol = 2, nrow = 2)
