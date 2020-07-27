@@ -109,6 +109,31 @@ model_fixed <- plm(allmort ~ spircons + dry + jaild + aidall + mlda + unrate + p
 
 model_fixed_1 <- plm(allmort ~ beertax + aidall + unrate + perinc + allnite + pop1517 + pop1820,
                      model='within',data = total_data_frame, effect = "twoways" )
+
+
+Balanced Panel: n = 48, T = 7, N = 336
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-346.76919  -26.74337   -0.99852   30.64066  221.86132 
+
+Coefficients:
+           Estimate  Std. Error t-value  Pr(>|t|)    
+beertax -1.3279e+02  6.2683e+01 -2.1185   0.03503 *  
+aidall   3.0352e-01  7.1268e-02  4.2589 2.823e-05 ***
+unrate  -1.0002e+01  4.2569e+00 -2.3497   0.01950 *  
+perinc   4.6412e-02  8.4342e-03  5.5029 8.558e-08 ***
+allnite  1.8014e+00  1.9583e-01  9.1986 < 2.2e-16 ***
+pop1517  2.0046e-03  3.9858e-04  5.0293 8.893e-07 ***
+pop1820 -3.4886e-03  4.4599e-04 -7.8221 1.119e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    2644200
+Residual Sum of Squares: 952290
+R-Squared:      0.63986
+Adj. R-Squared: 0.56128
+F-statistic: 69.7985 on 7 and 275 DF, p-value: < 2.22e-16
 ~~~
 
 * Variables in the first model **model_fixed** have some common variables considered in OLS-models. But the variable **"comserd - Mandatory Community Service"** which was considered as statistically significant is no longer in the fixed effects model, **model_fixed**. 
@@ -124,6 +149,38 @@ Random effects model are also built considering the same variables as the fixed 
 ~~~
 model_random_1 <- plm(allmort ~ beertax + aidall + unrate + perinc + allnite + pop1517+ pop1820,
                       model='random',data = total_data_frame)
+
+
+Balanced Panel: n = 48, T = 7, N = 336
+
+Effects:
+                   var  std.dev share
+idiosyncratic  3759.96    61.32  0.22
+individual    13313.58   115.38  0.78
+theta: 0.8031
+
+Residuals:
+      Min.    1st Qu.     Median    3rd Qu.       Max. 
+-311.41641  -40.15302   -0.85205   40.18391  383.06229 
+
+Coefficients:
+               Estimate  Std. Error z-value  Pr(>|z|)    
+(Intercept) -1.1189e+02  1.3697e+02 -0.8168  0.414014    
+beertax      1.1165e+02  4.0961e+01  2.7257  0.006416 ** 
+aidall       2.4543e-01  8.9807e-02  2.7329  0.006278 ** 
+unrate      -2.5205e+01  4.1560e+00 -6.0649 1.321e-09 ***
+perinc       2.1827e-02  7.7302e-03  2.8236  0.004749 ** 
+allnite      2.3945e+00  2.2974e-01 10.4225 < 2.2e-16 ***
+pop1517      2.0203e-03  4.1460e-04  4.8729 1.100e-06 ***
+pop1820     -4.4177e-04  3.8676e-04 -1.1422  0.253354    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    14211000
+Residual Sum of Squares: 1940000
+R-Squared:      0.86349
+Adj. R-Squared: 0.86058
+Chisq: 2074.76 on 7 DF, p-value: < 2.22e-16
 ~~~
 
 The variables from fixed effects mode and random effects model are the same but their coefficients differ. 
