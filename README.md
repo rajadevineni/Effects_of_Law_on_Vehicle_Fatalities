@@ -67,7 +67,32 @@ model_ols_2 <- lm(allmort ~  dry + unrate + allnite + beertax + comserd + pop151
 **model_ols_2** model has 2 more variables pop1517 and pop1820 compared to **model_ols_1**, surprisingly the AIC and BIC values of **model_ols_2** has gone down despite adding two more variables into the model. 
 
 ### Summary of model_ols_2:
-![model_ols_2 summary](/Plots%26Graphs/OLS_Model.png)
+~~~
+lm(formula = allmort ~ dry + unrate + allnite + beertax + comserd + 
+    pop1517 + pop1820, data = total_data_frame)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-504.17  -69.25   -2.91   74.92  888.25 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  4.468e+01  2.765e+01   1.616 0.107017    
+dry          3.606e+00  9.217e-01   3.913 0.000111 ***
+unrate      -1.472e+01  3.373e+00  -4.363 1.72e-05 ***
+allnite      3.762e+00  1.319e-01  28.518  < 2e-16 ***
+beertax      1.156e+02  1.789e+01   6.460 3.79e-10 ***
+comserd      9.157e+01  2.212e+01   4.140 4.42e-05 ***
+pop1517     -1.664e-03  5.012e-04  -3.321 0.000999 ***
+pop1820      2.390e-03  4.745e-04   5.036 7.86e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 149.5 on 327 degrees of freedom
+  (1 observation deleted due to missingness)
+Multiple R-squared:  0.9732,	Adjusted R-squared:  0.9726 
+F-statistic:  1693 on 7 and 327 DF,  p-value: < 2.2e-16
+~~~
 
 * *Despite having very good R-squared value and other metrics, a model may have heteroskedasticity. Such models Std.Error are not reliable hence we need to find heteroskedastisity in the model and remove if exists.* 
 
