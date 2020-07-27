@@ -16,11 +16,11 @@ The complete description of the dataset is available [**here**](https://github.c
 
 ***Top 6 states with highest average State Unemployement rate.***
 
-		State | Unemployement rate 
-		----- | ------------------ 
-		   WV | 13.20
-	       LA | 11.37
-	       MI | 10.77
-	       MS | 10.71
-	       AL | 10.41
-	       KY | 09.58
+	State | Unemployement rate 
+	----- | ------------------ 
+	   WV | 13.20
+           LA | 11.37
+	   MI | 10.77
+	   MS | 10.71
+	   AL | 10.41
+	   KY | 09.58
