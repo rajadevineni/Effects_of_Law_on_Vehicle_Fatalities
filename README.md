@@ -10,11 +10,11 @@ Do laws like Tax on Case of Beer ($), Mandatory Jail Sentence, Mandatory Communi
 The Dataset consists of data on 48 states over 7 years, 1982-1988. This is panel data where State and Year are considered as indexes, however the regressions models are developed on Pooled, Fixed and Random methods. Multiple methods are developed in this project but only the final models (1-pooled & 1-fixed) are detailed below(verify the code for other models). 
 The explanatory variables in models are choosen on general economic terms where we usually think there would be a relationship between the # vehicle fatalities and explanatory variables. 
 
-The complete description of the dataset is available [**here**] (https://github.com/rajadevineni/Effects_of_Law_on_Vehicle_Fatalities/blob/master/CarFatality_Dataset_Description.docx)
+The complete description of the dataset is available [**here**](https://github.com/rajadevineni/Effects_of_Law_on_Vehicle_Fatalities/blob/master/CarFatality_Dataset_Description.docx)
 
 ## Basic Findings: 
 
-### Top 6 states with highest average State Unemployement rate.
+***Top 6 states with highest average State Unemployement rate.***
 		State | Unemployement rate 
 		----- | ------------------ 
 		   WV | 13.20
